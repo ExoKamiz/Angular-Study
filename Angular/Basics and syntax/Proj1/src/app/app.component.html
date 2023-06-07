@@ -1,0 +1,110 @@
+<!--here we import components for using in app(name of components in ts)-->
+
+<!--&lt;!&ndash;Here we can pass some variables from component&ndash;&gt;-->
+<!--<p>{{title}}</p>-->
+<!--<p><strong>{{number-2}}</strong></p>-->
+<!--<p><strong>{{arr}}</strong></p>-->
+<!--<p><strong>{{obj.a}}</strong></p>   &lt;!&ndash;you should to be careful with object passing &ndash;&gt;-->
+
+<!--&lt;!&ndash;<img src="{{img}}" alt="">  &lt;!&ndash;here we using interpolation&ndash;&gt;&ndash;&gt;-->
+<!--<img [src]="img" alt="">  &lt;!&ndash;here we using binding.-->
+<!--If anybody use [], it mean tha we are using one side binding(connecting html with ts)&ndash;&gt;-->
+
+<!--<button (click)="onClick()">Click me</button> &lt;!&ndash;We can use a lot of events, for example click&ndash;&gt;-->
+
+<!--<input-->
+<!--  type="text"-->
+<!--  (keyup.enter)="onInput($event)"-->
+<!--  (blur)="onBlur(myInput.value)"-->
+<!--  #myInput-->
+<!--&gt;  &lt;!&ndash;event work only on enter click; #myInput is link on input element;-->
+<!--   onBlur example is other way to pass from html to ts&ndash;&gt;-->
+
+<!--&lt;!&ndash;  (input)="onInput($event)"> &lt;!&ndash;For passing from html to ts via binding we use (); for passing native event we need to use $&ndash;&gt;&ndash;&gt;-->
+
+<!--<p><strong>{{inputValue}}</strong></p>  &lt;!&ndash;Will be print text from input under input&ndash;&gt;-->
+
+<!--<app-post></app-post>-->
+<!--<app-post2></app-post2>-->
+
+<!--&lt;!&ndash;<input type="text" [value]="title" (input)="onInput($event)"> &lt;!&ndash;double-sided binding&ndash;&gt;&ndash;&gt;-->
+<!--<input type="text" [(ngModel)]="title"> &lt;!&ndash;better way to use double-sided binding. Need import FormsModule in module!&ndash;&gt;-->
+
+<!--<p>{{title}}</p>-->
+
+<!--&lt;!&ndash;=====15=====&ndash;&gt;-->
+<!--&lt;!&ndash;if function consist of only one row we can write it inside template&ndash;&gt;-->
+<!--<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>-->
+<!--&lt;!&ndash;we can use only 'style=', but for reactive toggle we need ngStyle&ndash;&gt;-->
+<!--<div [ngStyle]="{-->
+<!--  width: '200px',-->
+<!--  height: '200px',-->
+<!--  borderRadius: '5px',-->
+<!--  border: '1px solid #ccc',-->
+<!--  background: backgroundToggle ? 'red' : 'blue'-->
+<!--}"></div> &lt;!&ndash;When click toggle flag change&ndash;&gt;-->
+
+<!--&lt;!&ndash;=====16=====&ndash;&gt;-->
+<!--<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>-->
+<!--&lt;!&ndash;Using ngClass and a.c.scc we can change color depending on flag&ndash;&gt;-->
+<!--<p [ngClass]="{-->
+<!--  red: backgroundToggle,-->
+<!--  blue: !backgroundToggle-->
+<!--}">Hello mir, manera krutit</p>-->
+<!--&lt;!&ndash;Other way to use dynamic css classes&ndash;&gt;-->
+<!--<p-->
+<!--  [class.blue]="!backgroundToggle"-->
+<!--  [class.red]="backgroundToggle"-->
+<!--&gt;Hello mir, manera krutit</p>-->
+
+<!--&lt;!&ndash;=====17=====&ndash;&gt;-->
+<!--<button (click)="toggle = !toggle">Toggle</button>-->
+<!--&lt;!&ndash;If directive will be change html template we should use '*'&ndash;&gt;-->
+<!--<p *ngIf="toggle" class="red">Ever never just already yet</p>-->
+<!--<p *ngIf="!toggle" class="blue">Ever never just already yet</p>-->
+<!--&lt;!&ndash;Also we can use 'if else', but in this case we should add 'ng-template' and use link(#)&ndash;&gt;-->
+<!--<p *ngIf="toggle; else blueP" class="red">Ever never just already yet</p>-->
+<!--<ng-template #blueP>-->
+<!--  <p class="blue">Ever never just already yet</p>-->
+<!--</ng-template>-->
+
+<!--&lt;!&ndash;=====18=====&ndash;&gt;-->
+<!--<button (click)="toggle = !toggle">Toggle</button>-->
+<!--<button (click)="toggle = 'coChcesz'">Default</button>  &lt;!&ndash;for default checking&ndash;&gt;-->
+
+<!--<div [ngSwitch]="toggle">-->
+<!--  <p *ngSwitchCase="true" class="red">Hello, I'm red</p>-->
+<!--  <p *ngSwitchCase="false" class="blue">Hello, I'm blue</p>-->
+<!--  <p *ngSwitchDefault class="orange">Hello, I'm default, but I'm orange, wtf</p>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;=====19=====&ndash;&gt;-->
+<!--&lt;!&ndash;Default using of ngFor&ndash;&gt;-->
+<!-- <ul>-->
+<!--   <li *ngFor="let n of arr">-->
+<!--     {{n}}-->
+<!--   </li>-->
+<!-- </ul>-->
+<!--&lt;!&ndash;Print index before array; index is part of angular&ndash;&gt;-->
+<!--<ul>-->
+<!--  <li *ngFor="let n of arr; let idx = index">-->
+<!--    {{idx}} <strong>{{n}}</strong>-->
+<!--  </li>-->
+<!--</ul>-->
+<!--&lt;!&ndash;More difficult example&ndash;&gt;-->
+<!--<ul style="list-style: none">-->
+<!--  <li *ngFor="let post of objs">-->
+<!--    <p>{{post.title}} <b>{{post.author}}</b></p>-->
+<!--    <ul>-->
+<!--      <li *ngFor="let comment of post.comments">-->
+<!--        <small>{{comment.name}}</small>-->
+<!--        <p>{{comment.text}}</p>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--=====20=====-->
+<p>
+  {{now | date:'long' | uppercase}}
+</p>
