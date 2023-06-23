@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Angular Components</h1>
+
+<!--1-->
+<!--3-->
+<!--Getting parameters from child component using ()-->
+<!--For passing objects into methode we use $event-->
+  <app-post-form
+    (onAdd)="updatePosts($event)"
+  ></app-post-form>
+  <hr />
+<!--2-->
+<!--  Passing parameters from app.component(parent) to post.component(child) using []-->
+  <app-post
+    *ngFor="let p of posts"
+    [myPost]="p"
+  >
+<!--6-->
+    <div #info>
+  <!--5-->
+      <small *ngIf="p.text.length > 10; else short">Post is long</small>
+      <ng-template #short>
+        <small>Post is short</small>
+      </ng-template>
+    </div>
+  </app-post>
+
+</div>

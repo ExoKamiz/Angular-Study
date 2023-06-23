@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fd83ca0-16c7-4416-a138-aecdff6238ee" name="Changes" comment="" />
+    <list default="true" id="8fd83ca0-16c7-4416-a138-aecdff6238ee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Proj1/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Proj1/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proj1/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Proj1/src/app/app.component.spec.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Proj1" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QfA1e0ETKKL6moINPNR9w0BgyV" />
   <component name="ProjectViewState">
@@ -20,7 +29,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "Y:/Angular Study/Angular/Basics and syntax/Proj1",
+    "last_opened_file_path": "Y:/Angular Study/Angular/Basics and syntax",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "Y:\\Angular Study\\Angular\\Basics and syntax\\Proj1\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -34,6 +49,7 @@
       <updated>1685734047929</updated>
       <workItem from="1685734049466" duration="47000" />
       <workItem from="1685737611703" duration="48000" />
+      <workItem from="1687277677213" duration="605000" />
     </task>
     <servers />
   </component>

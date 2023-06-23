@@ -1,4 +1,4 @@
-<!--here we import components for using in app(name of components in ts)-->
+<!--&lt;!&ndash;here we import components for using in app(name of components in ts)&ndash;&gt;-->
 
 <!--&lt;!&ndash;Here we can pass some variables from component&ndash;&gt;-->
 <!--<p>{{title}}</p>-->
@@ -16,8 +16,8 @@
 <!--  type="text"-->
 <!--  (keyup.enter)="onInput($event)"-->
 <!--  (blur)="onBlur(myInput.value)"-->
-<!--  #myInput-->
-<!--&gt;  &lt;!&ndash;event work only on enter click; #myInput is link on input element;-->
+<!--  #myInput>-->
+<!--&lt;!&ndash;event work only on enter click; #myInput is link on input element;-->
 <!--   onBlur example is other way to pass from html to ts&ndash;&gt;-->
 
 <!--&lt;!&ndash;  (input)="onInput($event)"> &lt;!&ndash;For passing from html to ts via binding we use (); for passing native event we need to use $&ndash;&gt;&ndash;&gt;-->
@@ -32,77 +32,77 @@
 
 <!--<p>{{title}}</p>-->
 
-<!--&lt;!&ndash;=====15=====&ndash;&gt;-->
-<!--&lt;!&ndash;if function consist of only one row we can write it inside template&ndash;&gt;-->
-<!--<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>-->
-<!--&lt;!&ndash;we can use only 'style=', but for reactive toggle we need ngStyle&ndash;&gt;-->
-<!--<div [ngStyle]="{-->
-<!--  width: '200px',-->
-<!--  height: '200px',-->
-<!--  borderRadius: '5px',-->
-<!--  border: '1px solid #ccc',-->
-<!--  background: backgroundToggle ? 'red' : 'blue'-->
-<!--}"></div> &lt;!&ndash;When click toggle flag change&ndash;&gt;-->
+<!--=====15=====-->
+<!--if function consist of only one row we can write it inside template-->
+<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>
+<!--we can use only 'style=', but for reactive toggle we need ngStyle-->
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  borderRadius: '5px',
+  border: '1px solid #ccc',
+  background: backgroundToggle ? 'red' : 'blue'
+}"></div> <!--When click toggle flag change-->
 
-<!--&lt;!&ndash;=====16=====&ndash;&gt;-->
-<!--<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>-->
-<!--&lt;!&ndash;Using ngClass and a.c.scc we can change color depending on flag&ndash;&gt;-->
-<!--<p [ngClass]="{-->
-<!--  red: backgroundToggle,-->
-<!--  blue: !backgroundToggle-->
-<!--}">Hello mir, manera krutit</p>-->
-<!--&lt;!&ndash;Other way to use dynamic css classes&ndash;&gt;-->
-<!--<p-->
-<!--  [class.blue]="!backgroundToggle"-->
-<!--  [class.red]="backgroundToggle"-->
-<!--&gt;Hello mir, manera krutit</p>-->
+<!--=====16=====-->
+<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>
+<!--Using ngClass and a.c.scc we can change color depending on flag-->
+<p [ngClass]="{
+  red: backgroundToggle,
+  blue: !backgroundToggle
+}">Hello mir, manera krutit</p>
+<!--Other way to use dynamic css classes-->
+<p
+  [class.blue]="!backgroundToggle"
+  [class.red]="backgroundToggle"
+>Hello mir, manera krutit</p>
 
-<!--&lt;!&ndash;=====17=====&ndash;&gt;-->
-<!--<button (click)="toggle = !toggle">Toggle</button>-->
-<!--&lt;!&ndash;If directive will be change html template we should use '*'&ndash;&gt;-->
-<!--<p *ngIf="toggle" class="red">Ever never just already yet</p>-->
-<!--<p *ngIf="!toggle" class="blue">Ever never just already yet</p>-->
-<!--&lt;!&ndash;Also we can use 'if else', but in this case we should add 'ng-template' and use link(#)&ndash;&gt;-->
-<!--<p *ngIf="toggle; else blueP" class="red">Ever never just already yet</p>-->
-<!--<ng-template #blueP>-->
-<!--  <p class="blue">Ever never just already yet</p>-->
-<!--</ng-template>-->
+<!--=====17=====-->
+<button (click)="toggle = !toggle">Toggle</button>
+<!--If directive will be change html template we should use '*'-->
+<p *ngIf="toggle" class="red">Ever never just already yet</p>
+<p *ngIf="!toggle" class="blue">Ever never just already yet</p>
+<!--Also we can use 'if else', but in this case we should add 'ng-template' and use link(#)-->
+<p *ngIf="toggle; else blueP" class="red">Ever never just already yet</p>
+<ng-template #blueP>
+  <p class="blue">Ever never just already yet</p>
+</ng-template>
 
-<!--&lt;!&ndash;=====18=====&ndash;&gt;-->
-<!--<button (click)="toggle = !toggle">Toggle</button>-->
-<!--<button (click)="toggle = 'coChcesz'">Default</button>  &lt;!&ndash;for default checking&ndash;&gt;-->
+<!--=====18=====-->
+<button (click)="toggle = !toggle">Toggle</button>
+<button (click)="toggle = 'coChcesz'">Default</button>  <!--for default checking-->
 
-<!--<div [ngSwitch]="toggle">-->
-<!--  <p *ngSwitchCase="true" class="red">Hello, I'm red</p>-->
-<!--  <p *ngSwitchCase="false" class="blue">Hello, I'm blue</p>-->
-<!--  <p *ngSwitchDefault class="orange">Hello, I'm default, but I'm orange, wtf</p>-->
-<!--</div>-->
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true" class="red">Hello, I'm red</p>
+  <p *ngSwitchCase="false" class="blue">Hello, I'm blue</p>
+  <p *ngSwitchDefault class="orange">Hello, I'm default, but I'm orange, wtf</p>
+</div>
 
-<!--&lt;!&ndash;=====19=====&ndash;&gt;-->
-<!--&lt;!&ndash;Default using of ngFor&ndash;&gt;-->
-<!-- <ul>-->
-<!--   <li *ngFor="let n of arr">-->
-<!--     {{n}}-->
-<!--   </li>-->
-<!-- </ul>-->
-<!--&lt;!&ndash;Print index before array; index is part of angular&ndash;&gt;-->
-<!--<ul>-->
-<!--  <li *ngFor="let n of arr; let idx = index">-->
-<!--    {{idx}} <strong>{{n}}</strong>-->
-<!--  </li>-->
-<!--</ul>-->
-<!--&lt;!&ndash;More difficult example&ndash;&gt;-->
-<!--<ul style="list-style: none">-->
-<!--  <li *ngFor="let post of objs">-->
-<!--    <p>{{post.title}} <b>{{post.author}}</b></p>-->
-<!--    <ul>-->
-<!--      <li *ngFor="let comment of post.comments">-->
-<!--        <small>{{comment.name}}</small>-->
-<!--        <p>{{comment.text}}</p>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </li>-->
-<!--</ul>-->
+<!--=====19=====-->
+<!--Default using of ngFor-->
+ <ul>
+   <li *ngFor="let n of arr">
+     {{n}}
+   </li>
+ </ul>
+<!--Print index before array; index is part of angular-->
+<ul>
+  <li *ngFor="let n of arr; let idx = index">
+    {{idx}} <strong>{{n}}</strong>
+  </li>
+</ul>
+<!--More difficult example-->
+<ul style="list-style: none">
+  <li *ngFor="let post of objs">
+    <p>{{post.title}} <b>{{post.author}}</b></p>
+    <ul>
+      <li *ngFor="let comment of post.comments">
+        <small>{{comment.name}}</small>
+        <p>{{comment.text}}</p>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <!--=====20=====-->
 <p>
