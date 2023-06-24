@@ -1,0 +1,26 @@
+<!--1-->
+<div class="container">
+  <h1>Angular Directives</h1>
+<!--4-->
+  <p appStyle="red" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">
+    Testing of step 1
+  </p>
+  <p appStyle="pink" [dStyles]="{border: '3px solid yellow', borderRadius: '7px'}">
+    Testing of step 1
+  </p>
+<!--6-->
+  <button class="btn" (click)="isVisible = !isVisible">Toggle</button>
+  <div *ngIf="isVisible" class="wrap">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at blanditiis labore maxime natus nobis obcaecati porro recusandae repellendus similique!</p>
+  </div>
+<!--The same as above, only done under the hood-->
+  <ng-template [ngIf]="isVisible">
+    <div *ngIf="isVisible" class="wrap">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at blanditiis labore maxime natus nobis obcaecati porro recusandae repellendus similique!</p>
+    </div>
+  </ng-template>
+<!--Testing of ifnot directive-->
+  <div class="wrap" *appIfnot="!isVisible">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at blanditiis labore maxime natus nobis obcaecati porro recusandae repellendus similique!</p>
+  </div>
+</div>
