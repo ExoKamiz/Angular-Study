@@ -1,0 +1,93 @@
+<div class="container">
+  <app-switch></app-switch>
+
+  <form class="card" [formGroup] = "form" (ngSubmit)="submit()">
+    <h1>Angular Forms</h1>
+
+    <div class="form-control">
+      <label>Email</label>
+      <input type="text" placeholder="Email" formControlName="email">
+<!--6-->
+<!--using ngIf we attribute errors to specific fields in specific cases-->
+      <div
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('email').errors['required']">
+          Field email couldn't be empty
+        </small>
+        <small *ngIf="form.get('email').errors['email']">
+          Incorrect email form
+        </small>
+<!--10-->
+<!--using of our own validator-->
+        <small *ngIf="form.get('email').errors['restrictedEmail']">
+          Email {{form.get('email').value}} is restricted
+        </small>
+        <small *ngIf="form.get('email').errors['uniqEmail']">
+          Email {{form.get('email').value}} already exist
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Password</label>
+      <input type="password" placeholder="Password" formControlName="password">
+<!--added debug using a pipe to find the necessary parameters-->
+      <pre>{{form.get('password').errors | json}}</pre>
+
+      <div
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+        class="validation">
+        <small *ngIf="form.get('password').errors['required']">
+          Password field couldn't be empty
+        </small>
+        <small *ngIf="form.get('password').errors['minlength']">
+          Length must be at least {{form.get('password').errors['minlength']['requiredLength']}}.
+          Now length is {{form.get('password').errors['minlength']['actualLength']}}
+        </small>
+      </div>
+    </div>
+<!--7-->
+    <div class="card" formGroupName="address">
+      <h2>Address</h2>
+
+      <div class="form-control">
+        <label>Country</label>
+
+        <select formControlName="country">
+          <option value="ua">Ukraine</option>
+          <option value="pl">Poland</option>
+          <option value="ca">Canada</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <input type="text" formControlName="city"  placeholder="City">
+      </div>
+<!--8-->
+      <button class="btn" type="button" (click)="setCapital()">Choose capital</button>
+    </div>
+<!--9-->
+    <div class="card" formGroupName="skills">
+      <h2>Your skills</h2>
+      <button class="btn" type="button" (click)="addSkill()">Add skills</button>
+      <div
+        class="form-control"
+      *ngFor="let control of getControls(); let idx = index"
+      >
+        <label>Skills {{idx + 1}}</label>
+<!--since we are using a group We pass each element of the group with an index and use binding-->
+        <input type="text" [formControlName]="idx">
+      </div>
+    </div>
+<!--disabled - blocks submitting the form until you enter the correct data-->
+<!--11. add a pending parameter that blocks the button while the asynchronous validation is being processed-->
+    <button class="btn" type="submit" [disabled]="form.invalid || form.pending">Send</button>
+
+  </form>
+
+</div>
+
+
+
