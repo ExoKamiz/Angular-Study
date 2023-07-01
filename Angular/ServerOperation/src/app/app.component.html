@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Angular HttpClient</h1>
+
+  <div class="card">
+    <!--3-->
+    <div class="form-control">
+      <!--with the help of FormsModule we give to todoTitle a double binding-->
+      <input type="text" placeholder="Name" [(ngModel)]="todoTitle">
+    </div>
+
+    <div class="form-control">
+      <input type="text" placeholder="How many posts download?" [(ngModel)]="dwnldPosts">
+    </div>
+
+    <button class="btn" (click)="addTodo()">Add</button>
+    <!--4-->
+    <button class="btn" (click)="fetchTodos(dwnldPosts)">Download</button>
+  </div>
+
+  <hr>
+
+<!--8-->
+  <p *ngIf="error; else todoBlock" class="error">{{error}}</p>
+  <ng-template #todoBlock>
+  <!--4-->
+    <div *ngIf="!loading; else loadingBlock">
+      <div *ngIf="todos.length; else noTodos">
+        <!--2-->
+        <div class="card" *ngFor="let todo of todos">
+          <p>
+            <span [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
+            <span>
+            <button class="btn btn-danger" (click)="removeTodo(todo.id!)">Delete</button>
+            <!--7-->
+            <button class="btn" [disabled]="todo.completed" (click)="completeTodo(todo.id!)">Finish</button>
+          </span>
+          </p>
+        </div>
+      </div>
+      <ng-template #noTodos>
+        <p>No elements</p>
+      </ng-template>
+    </div>
+  <!--4-->
+    <ng-template #loadingBlock>
+      <p>Loading...</p>
+    </ng-template>
+  </ng-template>
+</div>
+
+
+
