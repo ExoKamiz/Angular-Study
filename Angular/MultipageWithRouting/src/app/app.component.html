@@ -1,0 +1,32 @@
+<nav class="navbar">
+<!--3-->
+<!--thanks to the registration of the Routing Module, we can use the routerLink directive to dynamically change the page-->
+  <h1>
+    <a [routerLink]="['/']">Angular Routing</a>
+  </h1>
+  <ul>
+    <!--4-->
+    <!--Add a Link to the router angular will assign the Active class to the required page-->
+
+    <!--add this so that the Home page is highlighted only during a full transition By link-->
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/']">Home</a>
+    </li>
+    <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/about']">About</a></li>
+
+    <li><button class="btn">Login</button></li>
+    <li><button class="btn">Logout</button></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="card">
+<!--2-->
+<!--to make the transition between pages work, add router-outlet-->
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
